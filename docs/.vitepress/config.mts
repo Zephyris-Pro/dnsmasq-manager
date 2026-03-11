@@ -13,6 +13,9 @@ export default defineConfig({
 		["meta", { property: "og:type", content: "website" }],
 		["meta", { name: "keywords", content: "dnsmasq, dns, manager, docker, web interface, dns records" }],
 	],
+	ignoreDeadLinks: [
+		/localhost/,
+	],
 	metaChunk: true,
 	srcDir: './src',
 	outDir: './dist',
