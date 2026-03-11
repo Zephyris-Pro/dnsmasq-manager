@@ -1,0 +1,39 @@
+services:
+  dnsmasq:
+    build: ./dnsmasq
+    container_name: dnsmasq
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "53:53/udp"
+      - "53:53/tcp"
+    volumes:
+      - ../data/dnsmasq.conf:/etc/dnsmasq.conf
+      - ../data/hosts:/etc/dnsmasq.d/custom-hosts.conf
+    restart: unless-stopped
+    networks:
+      - dns-net
+
+  webui:
+    build:
+      context: ..
+      dockerfile: docker/webui/Dockerfile
+    container_name: dnsmasq-webui
+    ports:
+      - "82:3000"
+    volumes:
+      - ../data:/data:rw
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - NODE_ENV=production
+      - DNSMASQ_CONTAINER=dnsmasq
+    depends_on:
+      - dnsmasq
+    restart: unless-stopped
+    networks:
+      - dns-net
+
+networks:
+  dns-net:
+    driver: bridge
+

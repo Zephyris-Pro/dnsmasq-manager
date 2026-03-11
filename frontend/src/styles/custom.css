@@ -1,0 +1,86 @@
+:root {
+  --tblr-primary: #206bc4;
+  --tblr-primary-rgb: 32, 107, 196;
+}
+
+[data-bs-theme='dark'] {
+  --tblr-body-bg: #0f1419;
+  --tblr-card-bg: #1a1f2e;
+  --tblr-border-color: #2d3748;
+}
+
+body {
+  transition: background-color 0.3s ease;
+}
+
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+
+.status-online {
+  background-color: #2fb344;
+  box-shadow: 0 0 0 3px rgba(47, 179, 68, 0.2);
+}
+
+.status-offline {
+  background-color: #d63939;
+  box-shadow: 0 0 0 3px rgba(214, 57, 57, 0.2);
+}
+
+.card {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+.card-sm .card-body {
+  padding: 1rem;
+}
+
+.nav-link svg {
+  transition: transform 0.3s ease;
+}
+
+.nav-link:hover svg {
+  transform: rotate(20deg);
+}
+
+tbody tr {
+  transition: opacity 0.2s ease;
+}
+
+.domain-name {
+    text-decoration: none;
+}
+
+.domain-name:hover {
+  text-decoration: underline;
+}
+
+.modal-backdrop {
+  cursor: default;
+}
+
+.btn-ghost-danger {
+  color: inherit;
+  background: transparent;
+  border: none;
+  transition: color 0.15s ease;
+}
+
+.btn-ghost-danger:hover {
+  color: #d63939;
+  background-color: rgba(214, 57, 57, 0.06);
+}
+
+.react-hot-toast {
+  z-index: 10000 !important;
+}
